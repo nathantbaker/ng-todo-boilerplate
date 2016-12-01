@@ -1,25 +1,7 @@
 "use strict";
 
-app.controller('TodoCtrl', function($scope, $location) {
-  $scope.title = "Todo app";
-  $scope.showListView = true;
+app.controller('ItemNewCtrl', function($scope) {
   $scope.newTask = {};
-
-  $scope.addNewItem = function(){
-    $scope.newTask.isCompleted = false;
-    $scope.newTask.id = $scope.items.length;
-    $scope.items.push($scope.newTask);
-    $scope.newTask = {};
-  };
-
-  $scope.newItem = function(){
-    $location.url("/items/new");
-  };
-
-  $scope.allItems = function(){
-    $location.url("/items/list");
-  };
-
   $scope.items = [
     {
       id: 0,
