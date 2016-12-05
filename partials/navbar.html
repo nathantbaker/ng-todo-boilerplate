@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <!-- TODO: Use Angular to loop through nav items -->
       <ul class="nav navbar-nav navbar-right" ng-repeat="link in navItems">
-        <li><a href="#">{{link.name}}</a></li>
+        <li><a ng-href="{{link.url}}">{{link.name}}</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
