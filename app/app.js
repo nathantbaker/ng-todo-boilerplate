@@ -16,5 +16,28 @@ app.config(function($routeProvider){
     templateUrl: 'partials/item-details.html',
     controller: 'ItemViewCtrl'
   })
+  .when('/createuser', {
+    templateUrl: 'partials/create-user.html',
+    controller: 'CreateUserCtrl'
+  })
   .otherwise('/items/list');
+});
+
+// Grab the Auth Factory
+let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
+  AuthFactory.isAuthenticated().then((userExists) => {
+    if(userExists) {
+      resolve();
+    } else {
+      reject();
+    }
+  });
+});
+
+app.run( ($location, FBCreds) => {
+  let authConfig = {
+    apiKey: FBCreds.key,
+    authDomain: FBCreds.authDomain
+  };
+  firebase.initializeApp(authConfig);
 });

@@ -1,0 +1,15 @@
+<h1>Create User</h1>
+<p>Please submit your email address and password to create an account.</p>
+<form>
+  <div class="form-group">
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" placeholder="Type Your Email" ng-model="userObj.email"/>
+  </div>
+    <label>Password</label>
+    <input type="text" class="form-control" placeholder="Type Your Name" ng-model="userObj.password"/>
+  </div>
+
+  <!-- TODO: bind this button to a function -->
+  <button class="btn btn-default" ng-click="createNewUser()">Create User</button>
+</form>
