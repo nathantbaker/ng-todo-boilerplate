@@ -1,7 +1,13 @@
 "use strict";
 
-app.controller('ItemNewCtrl', function($scope) {
+app.controller('ItemNewCtrl', function($scope, ItemStorage) {
   $scope.newTask = {};
+  $scope.addNewItem = function(){
+    $scope.newTask.isCompleted = false;
+    $scope.newTask.id = $scope.items.length;
+    ItemStorage.postNewItem($scope.newTask);
+    $scope.newTask = {};
+  };
   $scope.items = [
     {
       id: 0,

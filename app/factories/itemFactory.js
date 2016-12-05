@@ -1,19 +1,7 @@
 "use strict";
 
-app.controller('TodoCtrl', function($scope, $location) {
-  $scope.title = "Todo app";
-  $scope.showListView = true;
-  $scope.newTask = {};
-
-  $scope.newItem = function(){
-    $location.url("/items/new");
-  };
-
-  $scope.allItems = function(){
-    $location.url("/items/list");
-  };
-
-  $scope.items = [
+app.factory("ItemStorage", () => {
+  let items = [
     {
       id: 0,
       task: "mow the lawn",
@@ -45,4 +33,15 @@ app.controller('TodoCtrl', function($scope, $location) {
       dependencies: "hammock, silence"
     }
   ];
+
+  let getItemList = () => {
+    return items;
+  };
+
+  let postNewItem = (newTask) => {
+    items.push(newTask);
+  };
+
+  return {getItemList, postNewItem};
+
 });
